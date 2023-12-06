@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14.4-alpine
+    container_name: db
+    volumes:
+      - habr_data:/var/lib/postgresql/data/
+    env_file:
+      - env/.env.db
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "$${POSTGRES_DB}", "-U", "$${POSTGRES_USER}" ]
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 30s
+      timeout: 30s
+      retries: 3
+
+  backend:
+    build: ../backend
+    image: habr_backend
+    ports:
+      - "80:8000"
+    container_name: backend
+    env_file:
+      - env/.env.backend
+    restart: always
+    volumes:
+      - static_value:/app/static/
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  parser:
+    build: ../parser
+    image: habr_parser
+    container_name: parser
+    env_file:
+      - env/.env.parser
+    restart: always
+    depends_on:
+      redis:
+        condition: service_healthy
+
+  consumer:
+    image: habr_backend
+    command: python consumer.py
+    container_name: consumer
+    env_file:
+      - env/.env.backend
+    depends_on:
+      backend:
+        condition: service_started
+      redis:
+        condition: service_healthy
+
+volumes:
+  static_value:
+  habr_data:

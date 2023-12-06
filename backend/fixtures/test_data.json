@@ -1,0 +1,80 @@
+[
+  {
+    "model": "users.user",
+    "pk": "a6405a4d-a11a-47b8-a6fe-c2cb5e4e681c",
+    "fields": {
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "is_superuser": true,
+      "password": "pbkdf2_sha256$600000$znQA5l65l2t9SMhfr7wnnr$Eg3xIm9xFEAGn/ARMcbCMnlB70ZBEu1DSitzexCOT3w=",
+      "is_active": true,
+      "is_staff": true
+    }
+  },
+  {
+    "model": "hubs.hub",
+    "pk": "2c4edc3d-6912-4441-86bc-5623d1366761",
+    "fields": {
+      "name": "программирование",
+      "link": "https://habr.com/ru/hubs/programming/articles/",
+      "parse_period": 10,
+      "created_at": "2023-12-05T10:56:21.801Z",
+      "updated_at": "2023-12-05T10:56:22.545Z"
+    }
+  },
+  {
+    "model": "hubs.hub",
+    "pk": "92ead041-3e0a-4c1c-b778-fe19d07b3491",
+    "fields": {
+      "name": "информационная безопасность",
+      "link": "https://habr.com/ru/hubs/infosecurity/articles/",
+      "parse_period": 5,
+      "created_at": "2023-12-05T10:58:21.801Z",
+      "updated_at": "2023-12-05T10:58:22.545Z"
+    }
+  },
+  {
+    "model": "hubs.author",
+    "pk": "92ead041-3e0a-4c1c-b778-fe19d07b3414",
+    "fields": {
+      "username": "TomHunter",
+      "link": "https://habr.com/ru/users/TomHunter/",
+      "created_at": "2023-12-05T10:58:21.801Z",
+      "updated_at": "2023-12-05T10:58:22.545Z"
+    }
+  },
+  {
+    "model": "hubs.author",
+    "pk": "13ead041-3e0a-4c1c-b778-fe19d07b3414",
+    "fields": {
+      "username": "Sivchenko_translate",
+      "link": "https://habr.com/ru/users/Sivchenko_translate/",
+      "created_at": "2023-12-06T08:58:21.801Z",
+      "updated_at": "2023-12-06T08:58:22.545Z"
+    }
+  },
+  {
+    "model": "hubs.article",
+    "pk": "92ead041-3e0a-4c1c-b778-fe19d07b3492",
+    "fields": {
+      "title": "Самые громкие события инфобеза за ноябрь 2023 года",
+      "link": "https://habr.com/ru/companies/tomhunter/articles/778614/",
+      "published_at": "2023-12-05T10:58:21.801Z",
+      "hub": "92ead041-3e0a-4c1c-b778-fe19d07b3491",
+      "author": "92ead041-3e0a-4c1c-b778-fe19d07b3414",
+      "body": "text"
+    }
+  },
+  {
+    "model": "hubs.article",
+    "pk": "92ead041-3e0a-4c1c-b778-fe19d01a3492",
+    "fields": {
+      "title": "Прекратите клепать базы данных",
+      "link": "https://habr.com/ru/articles/778720/",
+      "published_at": "2023-12-06T08:58:21.801Z",
+      "hub": "2c4edc3d-6912-4441-86bc-5623d1366761",
+      "author": "13ead041-3e0a-4c1c-b778-fe19d07b3414",
+      "body": "text1"
+    }
+  }
+]
