@@ -27,7 +27,7 @@ python -m unittest
 ```
 ### Запуск проекта
 - Переименуйте директорию habr_service/infra/env-example/ в habr_service/infra/env/ и замените содержимое файлов необходимыми данными
-- Запустите проект одной командой:
+- Перейдите в директорию habr_service/infra/ и запустите проект одной командой:
 ```commandline
 docker-compose up -d --build
 ```
