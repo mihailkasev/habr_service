@@ -13,9 +13,15 @@ git clone https://github.com/mihailkasev/habr_service.git
 - Переименуйте файл .env.example в .env и замените содержимое файла необходимыми данными
 - Перейдите в директорию habr_service/backend/ и запустите тесты бекэнда:
 ```commandline
+cd backend
+```
+```commandline
 python manage.py test
 ```
 - Перейдите в директорию habr_service/parser/ и запустите тесты парсер сервиса:
+```commandline
+cd parser
+```
 ```commandline
 python -m unittest
 ```
