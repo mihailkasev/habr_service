@@ -13,7 +13,7 @@ from hubs.serializers import HubSerializer, FavoriteSerializer, AuthorSerializer
 
 class HubViewSet(CachedModelViewSet):
     """ViewSet для представления Хаба"""
-    queryset = Hub.objects.prefetch_related('articles').order_by('-updated_at').all()
+    queryset = Hub.objects.prefetch_related('articles').all()
     serializer_class = HubSerializer
     permission_classes = [AdminOrReadOnly]
     filterset_class = HubFilter
@@ -41,7 +41,7 @@ class HubViewSet(CachedModelViewSet):
 
 class AuthorViewSet(CachedListRetrieveViewSet):
     """ViewSet для представления Автора"""
-    queryset = Author.objects.prefetch_related('articles').order_by('-updated_at').all()
+    queryset = Author.objects.prefetch_related('articles').all()
     serializer_class = AuthorSerializer
 
 

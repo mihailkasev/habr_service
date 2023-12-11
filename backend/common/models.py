@@ -34,3 +34,4 @@ class LinkedTimedModel(LinkedMixin, TimeStampedMixin):
     """Модель с ссылкой и временными отметками"""
     class Meta:
         abstract = True
+        ordering = ('-created_at', )

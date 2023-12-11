@@ -6,7 +6,7 @@ class Hub(LinkedTimedModel):
     name = models.CharField(max_length=255, unique=True, db_index=True, verbose_name='название')
     parse_period = models.PositiveSmallIntegerField(verbose_name='периодичность запроса хаба в мин.')
 
-    class Meta:
+    class Meta(LinkedTimedModel.Meta):
         verbose_name = 'Хаб'
         verbose_name_plural = 'Хабы'
 
@@ -18,7 +18,7 @@ class Author(LinkedTimedModel):
     """Модель автора"""
     username = models.CharField(max_length=150, unique=True, verbose_name='никнейм')
 
-    class Meta:
+    class Meta(LinkedTimedModel.Meta):
         verbose_name = 'Автор'
         verbose_name_plural = 'Авторы'
 
